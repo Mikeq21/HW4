@@ -284,7 +284,7 @@ class myHashMap<K,V> {
         remove(key);
 
         return true;
-    }
+    } // Bool Remove function - Michael Quiroga
 
 
     /**
@@ -444,7 +444,7 @@ class myHashMap<K,V> {
             head = head.next;
         }
         return null;
-    }
+    } //V Replace function - Michael Quiroga
 
     
     /**

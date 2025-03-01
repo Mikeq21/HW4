@@ -1,5 +1,5 @@
 /*
- * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
+ * *** Michael Quiroga / 272 - 001 ***
  *
  * This HashingProblems object contains three methods / problems that you must
  * complete utilize the HashMap object within the Java's Collection Framework Library.
@@ -41,8 +41,21 @@ class HashingProblems {
          * returning 0.0/0.0 IS correct (which would return a non-number).
          */
 
-         return 0.0 / 0.0;
-  }
+        //  Plan:   Simply add all the elements values in array and divide by the amount
+
+        double sum = 0;
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (map.containsKey(array[i])){
+                sum += map.get(array[i]);
+                count++;
+            }
+        }
+
+        return count == 0 ? 0.0/0.0 : sum / count;
+    } // getAverage function - Michael Quiroga
+
 
 
     /*
@@ -62,12 +75,22 @@ class HashingProblems {
        * Hint: Consider iterating over the HashMap using the keySet method.
        */
 
+      // Plan: Add every odd element to the given "result" Arraylist via the keys in keys arraylist
+
+      ArrayList<Integer> keys = new ArrayList<>(map.keySet()); // Convert keySet to a list
+      for (int i = 0; i < keys.size(); i++) {
+          int key = keys.get(i);
+
+          if (key % 2 != 0) {
+              result.add(map.get(key));
+          }
+      }
 
       return result;
-  }
+  } // Odd function - Michael Quiroga
 
 
-  /*
+    /*
    * Method twoSums()
    *
    * You ARE to solve this problem in time complexity O(n). The submittals will be spot checked.
@@ -110,7 +133,23 @@ class HashingProblems {
        * ADD YOUR CODE HERE
        */
 
-      return -1;
-  }
+      //    Plan:   Create "set" and slowly add the incoming numbers,
+      //            and check if it has a "k-complement" number either up or down
+      HashSet<Integer> set = new HashSet<>();
+      int count = 0;
+
+      for (int i = 0; i < numbers.length; i++) { // O(n) or only one for loop, count++ is O(1)
+          if (set.contains(numbers[i] - k)) {
+              count++;
+          }
+          if (set.contains(numbers[i] + k)) {
+              count++;
+          }
+          set.add(numbers[i]);
+      }
+
+      return count;
+  } // twoSums function - Michael Quiroga
+
 
 } /* end class HashingProblems */
